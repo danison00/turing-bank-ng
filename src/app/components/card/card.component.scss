@@ -1,0 +1,24 @@
+.account-info {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: rgba(206, 206, 206, 0.541);
+  display: flex;
+  overflow: hidden;
+
+}
+.range[typeCard="with-range"] {
+
+  background-color: #298854;
+  width: 8px;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.info{
+ width: 100%;
+ height: 100%;
+}
+.range[ typeCard = "normal"]{
+  display: none;
+}

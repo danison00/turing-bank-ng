@@ -1,0 +1,151 @@
+:host {
+  width: 100%;
+  height: 100%;
+
+}
+
+.host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100% - 70px);
+  width: 100%;
+  align-items: center;
+
+}
+
+.body {
+  width: 38%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 2%;
+}
+
+.info-account {
+  width: 100%;
+  height: 20%;
+
+}
+
+img {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.info1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.info1 span {
+
+  font-size: 1.25rem;
+}
+
+.info2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.313rem;
+}
+
+.card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem;
+  gap: 0rem;
+}
+
+.balance {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+i {
+  cursor: pointer;
+}
+
+.menu {
+  width: 100%;
+  height: 40%;
+}
+
+.ad {
+  width: 100%;
+  height: 30%;
+}
+
+.footer {
+  width: 100%;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+
+.menu-content {
+ padding: 0;
+
+}
+
+
+
+@media only screen and (max-width : 1300px) {
+  .body {
+    width: 42%;
+  }
+}
+
+@media only screen and (max-width : 1000px) {
+  .body {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width : 900px) {
+  .body {
+    width: 60%;
+
+  }
+}
+
+
+@media only screen and (max-width : 800px) {
+  .body {
+    width: 70%;
+
+  }
+}
+
+@media only screen and (max-width : 700px) {
+  .body {
+    width: 80%;
+
+  }
+}
+
+@media only screen and (max-width : 500px) {
+  .body {
+    width: 90%;
+
+  }
+
+}
+
+@media only screen and (max-width : 420px) {
+  .body {
+    width: 96%;
+
+  }
+
+
+}

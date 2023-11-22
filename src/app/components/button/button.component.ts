@@ -15,9 +15,13 @@ export class ButtonComponent implements OnInit {
   @Input() typeBtn : "primary" | "secondary" | "terciary" | "circle" = "primary";
   @Input() icon: string = "";
   @Input() pathIcon = "";
+  width = 0;
+  @Input() classe = "";
+
 
   clickEvent(){
-    alert("ev click");
+  
+
   }
 
 }

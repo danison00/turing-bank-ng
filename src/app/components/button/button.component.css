@@ -2,6 +2,9 @@
 :host{
 
   width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 button {
@@ -41,7 +44,7 @@ button[typeBtn="primary"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+
 
   &:hover {
     color: #000000;
@@ -51,8 +54,7 @@ button[typeBtn="primary"] {
 }
 
 button[typeBtn="circle"] {
-  width: 80px;
-  height: 80px;
+  height: 100%;
   background-color: #298854;
   border-radius: 50%;
   border: none;
@@ -69,7 +71,28 @@ button[typeBtn="circle"] {
   }
 }
 img{
-  width: 65%;
-  height: 65%;
+  width: 60%;
+  height: 60%;
 
 }
+
+/* button[typeBtn="circle"] {
+  position: relative;
+  display: inline-block;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  line-height: 2em;
+  cursor: pointer;
+
+  &:before{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+
+} */
+
