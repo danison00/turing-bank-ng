@@ -1,1 +1,41 @@
-<p>account-info works!</p>
+<app-card typeCard="with-range">
+  <div class="card-content">
+    <div class="info1">
+      <span>
+        <strong>
+          Olá, {{nameUser}}!
+        </strong>
+      </span>
+      <div>
+
+        <i>
+          <img src="assets/icons/support.svg" alt="">
+        </i>
+      </div>
+    </div>
+
+    <div class="info2">
+      <div>
+        <span style="font-size: 18px;">
+          Saldo
+        </span>
+      </div>
+
+      <div class="balance">
+        <span *ngIf="!showBalance" style="font-size: 1.05rem;" id="balance">
+          R$ ****
+        </span>
+        <span *ngIf="showBalance" style="font-size: 1.05rem;" id="balance">
+          R$ {{saldo}}
+        </span>
+        <i id="ver" *ngIf="hiddenBalance" (click)="hideenBalance()">
+          <img src="assets/icons/eye.svg">
+        </i>
+        <i *ngIf="showBalance" (click)="hideenBalance()" id="nao-ver">
+          <img src="assets/icons/eye-off.svg">
+        </i>
+      </div>
+    </div>
+  </div>
+
+</app-card>
