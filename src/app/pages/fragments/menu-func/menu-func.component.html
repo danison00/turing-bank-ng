@@ -6,7 +6,7 @@
 
       <div class="row-menu">
         <div>
-          <div class="btn-fun" (click)="view(0)">
+          <div class="btn-fun" (click)="view('deposit')">
             <app-button pathIcon="/assets/icons/notas-de-dinheiro-simples.svg" classe="circle"
               typeBtn="circle"></app-button>
           </div>
@@ -14,7 +14,7 @@
 
         </div>
         <div>
-          <div class="btn-fun">
+          <div class="btn-fun" (click)="view('transfer')">
             <app-button pathIcon="/assets/icons/aviao-de-papel.svg" classe="circle" typeBtn="circle"></app-button>
           </div>
           <span class="label">Transferir</span>
@@ -50,7 +50,7 @@
 
         </div>
         <div>
-          <div class="btn-fun" (click)="view(5)">
+          <div class="btn-fun" (click)="view('account-data')">
             <app-button pathIcon="/assets/icons/do-utilizador.svg" classe="circle" typeBtn="circle"></app-button>
           </div>
           <span class="label">Meus dados</span>

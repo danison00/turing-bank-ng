@@ -14,7 +14,7 @@
         </div>
 
         <div class="menu">
-          <app-menu-func (viewDataEvent)="slide2($event)"></app-menu-func>
+          <app-menu-func (slide2$)="slide2()"></app-menu-func>
         </div>
 
         <div class="ad">
@@ -25,11 +25,8 @@
       <div class="slide" id="slide2">
 
 
-        <app-account-data (eventClick)="slide1()" *ngIf="viewAccountData.value"></app-account-data>
+        <router-outlet></router-outlet>
 
-
-
-        <app-deposit *ngIf="viewDeposit.value"></app-deposit>
 
       </div>
     </div>

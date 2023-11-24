@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-func',
@@ -7,10 +8,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class MenuFuncComponent {
 
-  @Output() viewDataEvent : EventEmitter<number> = new EventEmitter<number>();
+  constructor(private router: Router){}
+  @Output() slide2$ : EventEmitter<void> = new EventEmitter<void>();
 
-  view(event: number){
-    this.viewDataEvent.emit(event);
+  slide2(){
+    this.slide2$.emit();
   }
-
+  view(view: string){
+    this.router.navigate(["home", view]);
+    this.slide2();
+  }
 }

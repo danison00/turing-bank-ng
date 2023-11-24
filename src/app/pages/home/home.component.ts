@@ -1,7 +1,9 @@
-import { Subscription } from 'rxjs';
+import { Subscription, filter } from 'rxjs';
 import { AccountData } from './../../interfaces/accountData';
 import { AccountService } from './../../service/account.service';
 import { Component, OnInit } from '@angular/core';
+import { SharedAccountDataHomeService } from 'src/app/service/shared-account-data-home.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,18 +13,10 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
 
-  viewDeposit = new View(false);
-  viewTransfer = new View(false);
-  viewHistory = new View(false);
-  viewFav = new View(false);
-  viewPig = new View(false);
-  viewAccountData = new View(false);
-
-  views = [this.viewDeposit, this.viewTransfer, this.viewHistory, this.viewFav, this.viewPig, this.viewAccountData];
 
   subscription: Subscription | undefined;
 
-  constructor(private accountServ: AccountService) {
+  constructor(private accountServ: AccountService, private sharedServ: SharedAccountDataHomeService, private router: Router) {
 
   }
 
@@ -31,31 +25,32 @@ export class HomeComponent implements OnInit {
     this.subscription = this.accountServ.getData().subscribe(
       (value) => {
         this.accountData = value;
-      },
-      (err) =>{
+      });
 
-      },
-      () =>{
+      this.sharedServ.getEvento$().subscribe(()=> this.slide1());
 
-      }
+      this.router.events.pipe(filter((event)=> event instanceof NavigationEnd)).subscribe(
+        (event) =>{
+          if(event.toString().split(' ')[5].split(")")[0].replace("'", "").replace("'", "") == "/home"){
+            this.slide1();
+          }else{
+            this.slide2();
+          }
+        }
       );
-
-
   }
 
-  slide2(event: number) {
-
-    this.views.forEach((view) => { view.value = false })
-    this.views[event].value = true;
+  slide2() {
 
     const slide2Checkbox = document.getElementById('slide2-control') as HTMLInputElement;
     slide2Checkbox.checked = true;
   }
-  addData(ac :AccountData){
+  addData(ac: AccountData) {
 
   }
 
   slide1() {
+    this.router.navigate(["home"]);
     const slide2Checkbox = document.getElementById('slide1-control') as HTMLInputElement;
     slide2Checkbox.checked = true;
 
@@ -67,10 +62,3 @@ export class HomeComponent implements OnInit {
 
 }
 
-class View {
-  value: boolean;
-
-  constructor(value: boolean) {
-    this.value = value;
-  }
-}

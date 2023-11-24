@@ -17,6 +17,7 @@ import { MenuFuncComponent } from './pages/fragments/menu-func/menu-func.compone
 import { AccountInfoComponent } from './pages/fragments/account-info/account-info.component';
 import { CarrousselComponent } from './components/carroussel/carroussel.component';
 import { AccountDataComponent } from './pages/fragments/account-data/account-data.component';
+import { TransferComponent } from './pages/create-account/transfer/transfer.component';
 
 
 
@@ -34,7 +35,8 @@ import { AccountDataComponent } from './pages/fragments/account-data/account-dat
     MenuFuncComponent,
     AccountInfoComponent,
     CarrousselComponent,
-    AccountDataComponent
+    AccountDataComponent,
+    TransferComponent
    ],
   imports: [
     BrowserModule,
