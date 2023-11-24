@@ -1,29 +1,46 @@
 <app-header></app-header>
 <div class="host">
+  <div class="box">
 
-  <div class="body">
+    <div class="slides">
+      <input type="radio" name="slide-control" id="slide1-control" checked>
+      <input type="radio" name="slide-control" id="slide2-control">
 
-    <div class="info-account">
-        <app-account-info></app-account-info>
-    </div>
 
-    <div class="menu">
+      <div class="slide home" id="slide1">
 
-      <app-menu-func></app-menu-func>
-    </div>
+        <div class="info-account">
+          <app-account-info></app-account-info>
+        </div>
 
-    <div class="ad">
-      <app-card>
-      </app-card>
-    </div>
+        <div class="menu">
+          <app-menu-func (viewDataEvent)="slide2($event)"></app-menu-func>
+        </div>
 
-    <div>
-      <footer class="footer">
-        <span>
-          Turing Bank © 2023-2023.
-          Todos direitos reservados - 2023</span>
-      </footer>
+        <div class="ad">
+          <app-card></app-card>
+        </div>
+      </div>
+
+      <div class="slide" id="slide2">
+
+
+        <app-account-data (eventClick)="slide1()" *ngIf="viewAccountData.value"></app-account-data>
+
+
+
+        <app-deposit *ngIf="viewDeposit.value"></app-deposit>
+
+      </div>
     </div>
 
   </div>
+
+  <footer class="footer">
+    <span>
+      Turing Bank © 2023-2023.
+      Todos direitos reservados - 2023</span>
+  </footer>
+
+
 </div>

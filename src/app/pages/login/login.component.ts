@@ -28,7 +28,6 @@ export class LoginComponent {
       {
         next: (v) => {
           if (v.statusCode == 200) {
-            alert(v.message);
             this.router.navigate(["/home"])
           }
           if (v.statusCode == 400) {

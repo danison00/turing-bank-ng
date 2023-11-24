@@ -3,7 +3,7 @@
     <div class="info1">
       <span>
         <strong>
-          Olá, {{nameUser}}!
+          Olá, {{accountData.name}}!
         </strong>
       </span>
       <div>
@@ -26,8 +26,8 @@
           R$ ****
         </span>
         <span *ngIf="showBalance" style="font-size: 1.05rem;" id="balance">
-          R$ {{saldo}}
-        </span>
+          R$ {{formattedBalance()}}
+                </span>
         <i id="ver" *ngIf="hiddenBalance" (click)="hideenBalance()">
           <img src="assets/icons/eye.svg">
         </i>

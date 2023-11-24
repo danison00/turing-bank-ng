@@ -15,6 +15,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { CardComponent } from './components/card/card.component';
 import { MenuFuncComponent } from './pages/fragments/menu-func/menu-func.component';
 import { AccountInfoComponent } from './pages/fragments/account-info/account-info.component';
+import { CarrousselComponent } from './components/carroussel/carroussel.component';
+import { AccountDataComponent } from './pages/fragments/account-data/account-data.component';
 
 
 
@@ -30,7 +32,9 @@ import { AccountInfoComponent } from './pages/fragments/account-info/account-inf
     HomeComponent,
     CardComponent,
     MenuFuncComponent,
-    AccountInfoComponent
+    AccountInfoComponent,
+    CarrousselComponent,
+    AccountDataComponent
    ],
   imports: [
     BrowserModule,

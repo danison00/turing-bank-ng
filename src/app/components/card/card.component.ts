@@ -8,10 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardComponent implements OnInit {
 
   @Input() typeCard : "with-range" | "normal" = "normal";
+  @Input() colorRange : "green" | "grey" | "black" = "green";
 
   ngOnInit(): void {
 
- 
+
   }
 
 }

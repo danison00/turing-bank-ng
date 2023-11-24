@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu-func',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu-func.component.scss']
 })
 export class MenuFuncComponent {
+
+  @Output() viewDataEvent : EventEmitter<number> = new EventEmitter<number>();
+
+  view(event: number){
+    this.viewDataEvent.emit(event);
+  }
 
 }

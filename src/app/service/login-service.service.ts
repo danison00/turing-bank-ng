@@ -51,4 +51,11 @@ export class LoginServiceService {
       })
      );
   }
+  public logout(){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.httpcliente.get("/api-public/logout", {headers}).pipe();
+  }
 }

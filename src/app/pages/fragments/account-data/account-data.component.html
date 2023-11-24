@@ -1,0 +1,22 @@
+<div class="box">
+  <div class="box-card">
+    <app-card typeCard="with-range" colorRange="black">
+      <div class="card-content">
+        <h2>Informações da Conta</h2>
+
+          <span><strong>Nome:</strong> {{ accountData.name }}</span>
+          <span><strong>CPF:</strong> {{ accountData.cpf }}</span>
+          <span><strong>Email:</strong> {{ accountData.email }}</span>
+          <span><strong>Telefone:</strong> {{ accountData.telephone }}</span>
+          <span><strong>Número da conta:</strong> {{ accountData.number }}</span>
+          <span><strong>Data de Abertura:</strong> {{ accountData.openingDate }}</span>
+
+      </div>
+    </app-card>
+  </div>
+  <div class="box-btn">
+    <div class="btn">
+      <app-button (eventClick)="onEventClick()" typeBtn="secondary" text="Voltar"></app-button>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@
   border-radius: 10px;
   background-color: rgba(206, 206, 206, 0.541);
   display: flex;
-  overflow: hidden;
+  
 
 }
 .range[typeCard="with-range"] {
@@ -16,9 +16,20 @@
   border-bottom-left-radius: 10px;
 }
 .info{
- width: 100%;
+ width: calc(100% - 8px);
  height: 100%;
 }
 .range[ typeCard = "normal"]{
   display: none;
+}
+
+.range[colorRange="black"] {
+
+  background-color: rgba(24, 24, 24, 0.726);
+
+}
+.range[colorRange="grey"] {
+
+  background-color: rgba(65, 65, 65, 0.541);
+
 }
