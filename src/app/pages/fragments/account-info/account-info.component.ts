@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/service/account.service';
-import { AccountData } from '../../../interfaces/accountData';
+import { AccountData } from '../../../models/accountData';
 
 @Component({
   selector: 'app-account-info',
@@ -13,7 +13,19 @@ export class AccountInfoComponent implements OnInit {
   hiddenBalance = true;
   showBalance = false;
 
-  accountData: AccountData = new AccountData();
+  accountData: AccountData ={
+    balance: "",
+    name: '',
+    cpf: '',
+    email: '',
+    telephone: '',
+    number: '',
+    openingDate: '',
+    deposits: [],
+    tranfersReceived: [],
+    tranfersSend: [],
+    favoritesAccounts: []
+  }
 
   constructor(private accServ: AccountService) { }
 
@@ -36,10 +48,12 @@ export class AccountInfoComponent implements OnInit {
     this.showBalance = !this.showBalance;
   }
 
-  formattedBalance() {
+  formattedBalance(): string {
+
     try {
 
-      var balance: string = this.accountData.balance;
+      var balance: string =  String( this.accountData.balance);
+
       var valorDepoisVirgula;
 
       if(balance == "0") return "0,00"
@@ -47,12 +61,18 @@ export class AccountInfoComponent implements OnInit {
 
       if (!balance.includes(".")) {
         valorDepoisVirgula = "00";
+        if(balance.length <=3 ){
+          console.log(balance+","+valorDepoisVirgula, "jnhjbhbh");
+
+          return balance+","+valorDepoisVirgula;
+        }
 
       } else {
         valorDepoisVirgula = balance.split(".")[1];
       }
 
       var aux1 = balance.split(".")[0];
+
 
       for (var i = aux1.length; i > 0; i--)
         if (i % 3 == 0 && aux1.length - i != 0) {
@@ -65,6 +85,8 @@ export class AccountInfoComponent implements OnInit {
 
       return aux1 + "," + valorDepoisVirgula;
     } catch (error) {
+      console.error(error);
+
       return ""
     }
 

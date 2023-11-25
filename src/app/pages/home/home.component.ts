@@ -1,5 +1,5 @@
 import { Subscription, filter } from 'rxjs';
-import { AccountData } from './../../interfaces/accountData';
+import { AccountData } from '../../models/accountData';
 import { AccountService } from './../../service/account.service';
 import { Component, OnInit } from '@angular/core';
 import { SharedAccountDataHomeService } from 'src/app/service/shared-account-data-home.service';
@@ -16,11 +16,16 @@ export class HomeComponent implements OnInit {
 
   subscription: Subscription | undefined;
 
+  modal = false;
+
   constructor(private accountServ: AccountService, private sharedServ: SharedAccountDataHomeService, private router: Router) {
 
   }
 
   private accountData!: AccountData;
+
+
+
   ngOnInit() {
     this.subscription = this.accountServ.getData().subscribe(
       (value) => {
@@ -50,6 +55,7 @@ export class HomeComponent implements OnInit {
   }
 
   slide1() {
+
     this.router.navigate(["home"]);
     const slide2Checkbox = document.getElementById('slide1-control') as HTMLInputElement;
     slide2Checkbox.checked = true;

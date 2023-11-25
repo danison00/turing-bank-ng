@@ -18,6 +18,7 @@ import { AccountInfoComponent } from './pages/fragments/account-info/account-inf
 import { CarrousselComponent } from './components/carroussel/carroussel.component';
 import { AccountDataComponent } from './pages/fragments/account-data/account-data.component';
 import { TransferComponent } from './pages/create-account/transfer/transfer.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 
@@ -36,7 +37,8 @@ import { TransferComponent } from './pages/create-account/transfer/transfer.comp
     AccountInfoComponent,
     CarrousselComponent,
     AccountDataComponent,
-    TransferComponent
+    TransferComponent,
+    ModalComponent
    ],
   imports: [
     BrowserModule,

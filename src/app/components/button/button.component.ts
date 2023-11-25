@@ -13,6 +13,8 @@ export class ButtonComponent implements OnInit {
   }
   @Input() text : string = "";
   @Input() typeBtn : "primary" | "secondary" | "terciary" | "circle" = "primary";
+  @Input() size : "normal" | "small"  = "normal";
+
   @Input() icon: string = "";
   @Input() pathIcon = "";
   width = 0;

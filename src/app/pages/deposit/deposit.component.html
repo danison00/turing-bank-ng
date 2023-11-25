@@ -1,1 +1,35 @@
-<p>deposit works!</p>
+<div class="box">
+
+
+  <header class="header">
+    <app-modal [show]="modal" (eventClose)="modal=false" (eventConfirm)="confirmDeposit()">
+      <div>
+        <strong>Nome: </strong>{{depositDataAccount.name}}
+      </div>
+      <div>
+        <strong>Número da conta: </strong>{{depositDataAccount.accountNumber}}
+      </div>
+      <div>
+        <strong>Valor do depósito: </strong>{{value}}
+      </div>
+
+
+    </app-modal>
+    <img src="/assets/img/turing-logo.png" alt="banco Turing" />
+
+    <span>DEPOSITE EM UMA CONTA</span>
+  </header>
+
+  <div class="form">
+    <div class="box-input">
+      <app-input [textAlert]="textAlert" [alertInput]="alertInputAccountNumber" (click)="removeAlertInput()"
+        (eventChange)="onAccountNumber($event)" type="number" label="Número da conta"></app-input>
+      <app-input (eventChange)="onValue($event)" [alertInput]="alertInputValue" [isMoed]=true
+        (click)="removeAlertInput()" label="Valor do depósito"></app-input>
+    </div>
+    <div class="box-btn">
+      <app-button (eventClick)="back()" typeBtn="secondary" text="Voltar"></app-button>
+      <app-button (eventClick)="checkAccountNumber()" text="Depositar"></app-button>
+    </div>
+  </div>
+</div>

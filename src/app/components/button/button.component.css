@@ -20,6 +20,13 @@ button {
   border-radius: 12px;
 }
 
+button[size = "small"]{
+  height: 38px;
+  font-weight: 300;
+  font-size: 15px;
+  padding: 0px 15px;
+}
+
 
 button[typeBtn="secondary"] {
 
