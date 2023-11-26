@@ -1,0 +1,19 @@
+
+<div>
+  <span><h2>Favoritos</h2></span>
+</div>
+<div class="box-favs">
+
+
+  <div class="cards">
+
+    <app-card *ngFor="let fav of favs">
+      <div class="card-deposit">
+        <div><strong>Nome: </strong>{{fav.name}}</div>
+        <div><strong>Conta Destino: </strong>{{fav.accountNumber}}</div>
+      </div>
+    </app-card>
+
+  </div>
+
+</div>

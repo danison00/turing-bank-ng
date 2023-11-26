@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable, catchError, interval, map, of, switchMap } from 'rxjs';
+import { Observable, catchError, interval, map, of, switchMap, throwError } from 'rxjs';
 import { AccountData } from "../models/accountData.js"
 import { DepositDataAccount } from '../models/DepositDataAccount.js';
+import { Transfer } from '../models/transfer.js';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { DepositDataAccount } from '../models/DepositDataAccount.js';
 export class AccountService {
 
 
-  accountData: AccountData ={
+  accountData: AccountData = {
     name: '',
     cpf: '',
     email: '',
@@ -24,9 +25,11 @@ export class AccountService {
     favoritesAccounts: []
   };
 
-  constructor(private http: HttpClient) {
 
+  constructor(private http: HttpClient) {
   }
+
+
 
   public getData(): Observable<AccountData> {
 
@@ -36,34 +39,42 @@ export class AccountService {
 
         this.http.get("/api/my-account", { observe: 'response' }).pipe(
           map((res: HttpResponse<any>) => {
-            const data = res.body;
 
-            this.accountData = {
-              name: data.name,
-              cpf: data.cpf,
-              email: data.email,
-              telephone: data.telephone,
-              number: data.number,
-              openingDate: data.openingDate,
-              balance: data.balance,
-              deposits: data.deposits,
-              favoritesAccounts: data.favoritesAccounts,
-              tranfersReceived: data.tranfersReceived,
-              tranfersSend: data.tranfersSend
-            };
+
+            if (res.ok) {
+
+
+              const data = res.body;
+
+              this.accountData = {
+                name: data.name,
+                cpf: data.cpf,
+                email: data.email,
+                telephone: data.telephone,
+                number: data.number,
+                openingDate: data.openingDate,
+                balance: data.balance,
+                deposits: data.deposits,
+                favoritesAccounts: data.favoritesAccounts,
+                tranfersReceived: data.tranfersReceived,
+                tranfersSend: data.tranfersSend
+              };
+            }
 
             return this.accountData;
           }),
           catchError((error) => {
-            alert(error);
             console.log(error);
             return of(error);
           })
         )
       )
     );
+
   }
-  public checkAccoutExist(accountNumber: string): Observable<DepositDataAccount | boolean> {
+  public checkAccoutExist(accountNumber: string): Observable<DepositDataAccount | boolean | Transfer> {
+
+
 
     return this.http.get("/api/transaction/deposit/check?accountNumber=" + accountNumber, { observe: "response" }).pipe(
       map((response: HttpResponse<any>) => {
@@ -95,6 +106,36 @@ export class AccountService {
 
       }), catchError((error) => {
         return of(false);
+
+      })
+    );
+  }
+
+
+  public transferir(transfer: Transfer): Observable<boolean> {
+
+    const data = {
+      accountDestination: transfer.accountDestination,
+      value: transfer.value,
+      saveDestination: transfer.saveDestination
+
+    }
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+
+    console.log(data, "hgasasgyuagsyuas");
+
+    return this.http.post('/api/transaction/transfer', data, { headers, observe: "response" }).pipe(
+      map((res: HttpResponse<any>) => {
+
+        return true;
+
+      }), catchError((error) => {
+        console.log(error);
+
+        throw new Error(error.error.message);
 
       })
     );

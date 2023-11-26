@@ -1,0 +1,46 @@
+<span style="font-size: 28px; font-weight: 500;">Histórico</span>
+<div class="container-buttons-view-history">
+  <button class="button" id="btn1" (click)="view1('btn1')">Enviadas</button>
+  <button class="button" id="btn2" (click)="view1('btn2')">Recebidas</button>
+  <button class="button" id="btn3" (click)="view1('btn3')">Depósitos</button>
+  <div class="range-view-history" id="range"></div>
+</div>
+<div class="content-view-history">
+  <input type="radio" name="btn" id="input-btn1" checked>
+  <input type="radio" name="btn" id="input-btn2">
+  <input type="radio" name="btn" id="input-btn3">
+  <div class="views" id="view1">
+    <div class="cards">
+      <app-card *ngFor="let a of transferSend">
+        <div class="card-deposit">
+          <div><strong>Nome: </strong>{{a.name}}</div>
+          <div><strong>Conta Destino: </strong>{{a.accountOrigin}}</div>
+          <div><strong>Valor: </strong>R$ {{a.value}}</div>
+          <div><strong>Data: </strong>{{a.dateAndHour}}</div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+  <div class="views" id="view2">
+    <div class="cards">
+      <app-card *ngFor="let a of transfersReceived">
+        <div class="card-deposit">
+          <div><strong>Nome: </strong>{{a.name}}</div>
+          <div><strong>Conta origem: </strong>{{a.accountOrigin}}</div>
+          <div><strong>Valor: </strong>R$ {{a.value}}</div>
+          <div><strong>Data: </strong>{{a.dateAndHour}}</div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+  <div class="views" id="view3">
+    <div class="cards">
+      <app-card *ngFor="let a of deposits">
+        <div class="card-deposit">
+          <div><strong>Valor: </strong>R$ {{a.value}}</div>
+          <div><strong>Data: </strong>{{a.dateAndHour}}</div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,8 @@ import { AccountService } from 'src/app/service/account.service';
 import { SharedAccountDataHomeService } from 'src/app/service/shared-account-data-home.service';
 import { DepositDataAccount } from '../../models/DepositDataAccount';
 import { AccountData } from 'src/app/models/accountData';
+import { Router } from '@angular/router';
+import { Transfer } from '../../models/transfer';
 
 @Component({
   selector: 'app-deposit',
@@ -20,12 +22,12 @@ export class DepositComponent {
 
   depositDataAccount: DepositDataAccount = {
     name: "",
-    accountNumber: 0,
+    accountNumber: '',
     value: 0.0
   }
 
 
-  constructor(private sharedServ: SharedAccountDataHomeService, private accountServ: AccountService) { }
+  constructor(private sharedServ: SharedAccountDataHomeService, private accountServ: AccountService, private router: Router) { }
 
 
 
@@ -50,7 +52,7 @@ export class DepositComponent {
     const value = this.getNumber(this.value);
 
     this.accountServ.checkAccoutExist(this.accountNumber).subscribe(
-      (depositAccountData: DepositDataAccount | boolean) => {
+      (depositAccountData: DepositDataAccount | boolean | Transfer) => {
 
         if(typeof(depositAccountData) == "boolean"){
 
@@ -61,7 +63,7 @@ export class DepositComponent {
 
         this.depositDataAccount = {
           name : depositAccountData.name,
-          accountNumber: depositAccountData.accountNumber,
+          accountNumber: this.accountNumber,
           value: this.getNumber(this.value)
         }
         this.modal = true;
@@ -74,7 +76,11 @@ export class DepositComponent {
   confirmDeposit(){
 
     this.accountServ.depositar(this.depositDataAccount).subscribe((resp)=>{
-      if(resp) alert("deposito realizado!")
+      if(resp){
+        alert("deposito realizado!")
+        this.router.navigate(["home"])
+
+      }
       else alert("Errro!")
 
     })

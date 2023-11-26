@@ -17,8 +17,10 @@ import { MenuFuncComponent } from './pages/fragments/menu-func/menu-func.compone
 import { AccountInfoComponent } from './pages/fragments/account-info/account-info.component';
 import { CarrousselComponent } from './components/carroussel/carroussel.component';
 import { AccountDataComponent } from './pages/fragments/account-data/account-data.component';
-import { TransferComponent } from './pages/create-account/transfer/transfer.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { HistoryComponent } from './pages/history/history.component';
+import { TransferComponent } from './pages/transfer/transfer.component';
+import { FavComponent } from './pages/fav/fav.component';
 
 
 
@@ -37,8 +39,10 @@ import { ModalComponent } from './components/modal/modal.component';
     AccountInfoComponent,
     CarrousselComponent,
     AccountDataComponent,
+    ModalComponent,
+    HistoryComponent,
     TransferComponent,
-    ModalComponent
+    FavComponent,
    ],
   imports: [
     BrowserModule,

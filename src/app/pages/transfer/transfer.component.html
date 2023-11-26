@@ -1,0 +1,37 @@
+<div class="box">
+
+
+  <header class="header">
+    <app-modal [show]="modal" (eventClose)="modal=false" (eventConfirm)="confirm()" >
+      <div>
+        <strong>Nome: </strong> {{transfer.name}}
+      </div>
+      <div>
+        <strong>Número da conta: </strong> {{transfer.accountDestination}}
+      </div>
+      <div>
+        <strong>Valor da transferência: </strong> {{transfer.value}}
+      </div>
+      <div>
+        <label><input (click)=" transfer.saveDestination= !transfer.saveDestination" type="checkbox" name="" id=""> Salvar como favorito</label>
+      </div>
+
+    </app-modal>
+    <img src="/assets/img/turing-logo.png" alt="banco Turing" />
+
+    <span>Faça transferências com agilidade e facilidade</span>
+  </header>
+
+  <div class="form">
+    <div class="box-input">
+      <app-input [textAlert]="textAlert" [alertInput]="alertInputAccountNumber" (click)="removeAlertInput()"
+        (eventChange)="onAccountNumber($event)" type="number" label="Número da conta"></app-input>
+      <app-input (eventChange)="onValue($event)" [alertInput]="alertInputValue" [isMoed]=true
+        (click)="removeAlertInput()" label="Valor da transferência"></app-input>
+    </div>
+    <div class="box-btn">
+      <app-button (eventClick)="back()" typeBtn="secondary" text="Voltar"></app-button>
+      <app-button (eventClick)="checkAccountNumber()" text="Transferir"></app-button>
+    </div>
+  </div>
+</div>

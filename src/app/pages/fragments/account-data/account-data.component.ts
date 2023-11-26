@@ -8,11 +8,11 @@ import { SharedAccountDataHomeService } from 'src/app/service/shared-account-dat
   templateUrl: './account-data.component.html',
   styleUrls: ['./account-data.component.scss']
 })
-export class AccountDataComponent implements OnInit{
+export class AccountDataComponent implements OnInit {
 
 
   @Input() hidden = true;
-  @Output() eventClick: EventEmitter<void> = new EventEmitter<void> ();
+  @Output() eventClick: EventEmitter<void> = new EventEmitter<void>();
 
   accountData: AccountData = {
     name: '',
@@ -28,13 +28,29 @@ export class AccountDataComponent implements OnInit{
     favoritesAccounts: []
   };
 
-  constructor(private accServ: AccountService, private sharedServ: SharedAccountDataHomeService){}
+  constructor(private accServ: AccountService, private sharedServ: SharedAccountDataHomeService) {
 
-  ngOnInit(){
-    this.accServ.getData().subscribe((data)=>{this.accountData = data});
-  }
-  onEventClick(){
+    this.accountData = {
+      name: accServ.accountData.name,
+      cpf: accServ.accountData.cpf,
+      email: accServ.accountData.email,
+      telephone: accServ.accountData.telephone,
+      number: accServ.accountData.number,
+      openingDate: accServ.accountData.openingDate,
+      balance: accServ.accountData.balance,
+      deposits: accServ.accountData.deposits,
+      favoritesAccounts: accServ.accountData.favoritesAccounts,
+      tranfersReceived: accServ.accountData.tranfersReceived,
+      tranfersSend: accServ.accountData.tranfersSend
+    };
 
-    this.sharedServ.emitirEvento();
   }
+
+
+ngOnInit(){
+}
+onEventClick(){
+
+  this.sharedServ.emitirEvento();
+}
 }

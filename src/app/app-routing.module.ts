@@ -6,10 +6,13 @@ import { CreateAccountComponent } from './pages/create-account/create-account.co
 import { DepositComponent } from './pages/deposit/deposit.component';
 import { AuthorizedGuard } from './security/authorized.guard';
 import { AccountDataComponent } from './pages/fragments/account-data/account-data.component';
-import { TransferComponent } from './pages/create-account/transfer/transfer.component';
+import { HistoryComponent } from './pages/history/history.component';
+import { TransferComponent } from './pages/transfer/transfer.component';
+import { FavComponent } from './pages/fav/fav.component';
 
 
 const routes: Routes = [
+  { path: "", component: LoginComponent },
   { path: "login", component: LoginComponent },
   {
     path: "home",
@@ -18,11 +21,15 @@ const routes: Routes = [
     children:[
       {path: "account-data", component: AccountDataComponent},
       {path: "deposit", component: DepositComponent},
-      {path: "transfer", component: TransferComponent}
+      {path: "history", component: HistoryComponent},
+      {path: "transfer", component: TransferComponent},
+      {path: "favs", component: FavComponent}
+
     ]
   },
   { path: "create-account", component: CreateAccountComponent },
-  { path: "deposit", component: DepositComponent }
+  { path: "deposit", component: DepositComponent },
+  { path: "**", redirectTo: "login" }
 ];
 
 @NgModule({

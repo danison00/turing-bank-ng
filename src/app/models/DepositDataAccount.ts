@@ -1,6 +1,6 @@
 export interface DepositDataAccount{
 
-  accountNumber: number,
+  accountNumber: string,
   name: string,
   value: number
 }

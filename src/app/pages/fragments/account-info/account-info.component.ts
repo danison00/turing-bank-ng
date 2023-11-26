@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/service/account.service';
 import { AccountData } from '../../../models/accountData';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-account-info',
   templateUrl: './account-info.component.html',
   styleUrls: ['./account-info.component.scss']
 })
-export class AccountInfoComponent implements OnInit {
+export class AccountInfoComponent implements OnInit, OnDestroy {
 
   saldo = "1200.0"
   hiddenBalance = true;
   showBalance = false;
 
-  accountData: AccountData ={
+  subscribe: Subscription = new Subscription;
+
+  accountData: AccountData = {
     balance: "",
     name: '',
     cpf: '',
@@ -28,10 +31,13 @@ export class AccountInfoComponent implements OnInit {
   }
 
   constructor(private accServ: AccountService) { }
+  ngOnDestroy(): void {
+    this.subscribe.unsubscribe();
+  }
 
   ngOnInit() {
 
-    this.accServ.getData().subscribe(
+    this.subscribe = this.accServ.getData().subscribe(
       (data) => {
         this.accountData = data;
 
@@ -52,19 +58,19 @@ export class AccountInfoComponent implements OnInit {
 
     try {
 
-      var balance: string =  String( this.accountData.balance);
+      var balance: string = String(this.accountData.balance);
 
       var valorDepoisVirgula;
 
-      if(balance == "0") return "0,00"
+      if (balance == "0") return "0,00"
 
 
       if (!balance.includes(".")) {
         valorDepoisVirgula = "00";
-        if(balance.length <=3 ){
-          console.log(balance+","+valorDepoisVirgula, "jnhjbhbh");
+        if (balance.length <= 3) {
+          console.log(balance + "," + valorDepoisVirgula, "jnhjbhbh");
 
-          return balance+","+valorDepoisVirgula;
+          return balance + "," + valorDepoisVirgula;
         }
 
       } else {

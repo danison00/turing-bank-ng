@@ -21,8 +21,8 @@
 
         </div>
         <div>
-          <div class="btn-fun">
-            <app-button pathIcon="/assets/icons/documento.svg" classe="circle" typeBtn="circle"></app-button>
+          <div class="btn-fun" (click)="view('history')">
+            <app-button pathIcon="/assets/icons/documento.svg"  classe="circle" typeBtn="circle"></app-button>
           </div>
           <span class="label">Histórico</span>
 
@@ -36,8 +36,8 @@
 
 
         <div>
-          <div class="btn-fun">
-            <app-button pathIcon="/assets/icons/coracao.svg" classe="circle" typeBtn="circle"></app-button>
+          <div class="btn-fun" (click)="view('favs')">
+            <app-button pathIcon="/assets/icons/coracao.svg"  classe="circle" typeBtn="circle"></app-button>
           </div>
           <span class="label">Favoritos</span>
 
