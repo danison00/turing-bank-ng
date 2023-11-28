@@ -11,21 +11,22 @@ export class ButtonComponent implements OnInit {
 
   ngOnInit() {
   }
-  @Input() text : string = "";
-  @Input() typeBtn : "primary" | "secondary" | "terciary" | "circle" = "primary";
-  @Input() size : "normal" | "small"  = "normal";
+  @Input() text: string = "";
+  @Input() typeBtn: "primary" | "secondary" | "terciary" | "circle" = "primary";
+  @Input() spinner: true | false = false;
+  @Input() size: "normal" | "small" = "normal";
+  @Input() spinnerOn = false;
 
   @Input() icon: string = "";
   @Input() pathIcon = "";
   width = 0;
   @Input() classe = "";
 
-  @Output() eventClick: EventEmitter<void> = new EventEmitter<void> ();
+  @Output() eventClick: EventEmitter<void> = new EventEmitter<void>();
 
 
-  clickEvent(){
-
-    this.eventClick.emit();
+  clickEvent() {
+     this.eventClick.emit();
   }
 
 }

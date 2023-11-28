@@ -14,8 +14,10 @@ export class LoginComponent {
 
   username: string = "";
   password: string = "";
+
   textAlert = "";
   alertInput = false;
+  spinnerOn = false;
 
   public realizarlogin(): void {
 
@@ -24,6 +26,7 @@ export class LoginComponent {
       return;
     }
 
+    this.spinnerOn = true;
     this.loginService.login(this.username, this.password).subscribe(
       {
         next: (v) => {
@@ -31,7 +34,7 @@ export class LoginComponent {
             this.router.navigate(["/home"])
           }
           if (v.statusCode == 400) {
-
+            this.spinnerOn = false;
             this.textAlert = "usuário ou senha inválidos"
             this.alertInput = true;
           }

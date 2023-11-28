@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   subscription: Subscription | undefined;
   modal = false;
+  loading = true;
 
   observable: Observable<AccountData> = new Observable<AccountData>();
 
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
     this.subscriptionRouterHome.unsubscribe();
-
+    
   }
 
   private accountData!: AccountData;
@@ -39,6 +40,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscription = this.observable.subscribe(
       (value) => {
         this.accountData = value;
+        this.loading = false;
       });
 
     this.sharedServ.getEvento$().subscribe(() => this.slide1());

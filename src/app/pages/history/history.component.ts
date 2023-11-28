@@ -28,6 +28,9 @@ export class HistoryComponent implements OnInit {
   transfersReceived: TransferReceived[] = [];
   transferSend: TransferReceived[] = []
 
+  loading = true;
+
+
   constructor(private accountServ: AccountService) { }
   ngOnInit(): void {
 
@@ -47,7 +50,7 @@ export class HistoryComponent implements OnInit {
         data.tranfersSend.forEach((tranfer) => {
           this.transferSend.push(tranfer);
         })
-
+        this.loading = false;
       }
     );
 

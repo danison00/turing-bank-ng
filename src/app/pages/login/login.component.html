@@ -1,6 +1,8 @@
 <div class="box">
   <div class="content">
 
+
+
     <img src="/assets/img/turing-logo.png" alt="" srcset=""/>
     <span>Faça o login na sua conta</span>
     <div class="inputs">
@@ -8,10 +10,11 @@
       <app-input (click)="removeAlertInput()" [alertInput]="alertInput" [textAlert]="textAlert" (eventChange) = "onPassword($event)" label="Senha" type="password" placeholder="digite sua senha" ></app-input>
     </div>
     <div class="buttons">
-      <app-button text="Login" (click) = "realizarlogin()" ></app-button>
+      <app-button text="Login" (click) = "realizarlogin()"  [spinner]=true [spinnerOn]="spinnerOn"></app-button>
 
       <app-button typeBtn="secondary" routerLink="/deposit" text="Depósito"></app-button>
       <!-- <span>{{username}}  {{password}}</span> -->
+
     </div>
     <div class="footer">
       <p>Você não possui conta?

@@ -1,4 +1,9 @@
-<button [class]="classe" (click)="clickEvent()" [attr.typeBtn]="typeBtn" [attr.size] = "size" >
+<button [class]="classe" (click)="clickEvent()" [attr.typeBtn]="typeBtn" [attr.size]="size">
   {{text}}
+
   <img *ngIf="pathIcon" [src]="pathIcon" width="70px" height="70px">
+
+  <div [attr.spinner]="spinnerOn" class="box-spinners">
+    <div [attr.spinner]="spinnerOn" class="spinner"></div>
+  </div>
 </button>

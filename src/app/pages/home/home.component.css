@@ -5,6 +5,7 @@
   height: calc(100% - 70px);
   width: 100%;
   align-items: center;
+  position: relative;
 
 }
 

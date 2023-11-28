@@ -8,7 +8,7 @@ import { ResponseDto } from '../models/responseDto';
 })
 export class LoginServiceService {
 
-  url: string = "/api-public/login";
+  url: string = "/api/public/auth/login";
 
    constructor(private httpcliente: HttpClient) { }
 
@@ -51,11 +51,16 @@ export class LoginServiceService {
       })
      );
   }
-  public logout(){
+  public logout(): Observable<boolean>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
 
-    return this.httpcliente.get("/api-public/logout", {headers}).pipe();
+    return this.httpcliente.get("/api/auth/logout",  {headers, observe: 'response'}).pipe(
+      map((res=>{
+          return true;
+      }))
+
+    );
   }
 }

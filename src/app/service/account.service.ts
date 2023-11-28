@@ -76,7 +76,7 @@ export class AccountService {
 
 
 
-    return this.http.get("/api/transaction/deposit/check?accountNumber=" + accountNumber, { observe: "response" }).pipe(
+    return this.http.get("/api/public/transaction/deposit/check?accountNumber=" + accountNumber, { observe: "response" }).pipe(
       map((response: HttpResponse<any>) => {
 
 
@@ -99,7 +99,7 @@ export class AccountService {
 
   }
   public depositar(deposit: DepositDataAccount): Observable<boolean> {
-    return this.http.post('/api/transaction/deposit', deposit, { observe: "response" }).pipe(
+    return this.http.post('/api/public/transaction/deposit', deposit, { observe: "response" }).pipe(
       map((response: HttpResponse<any>) => {
 
         return true;

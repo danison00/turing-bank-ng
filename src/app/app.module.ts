@@ -21,6 +21,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { TransferComponent } from './pages/transfer/transfer.component';
 import { FavComponent } from './pages/fav/fav.component';
+import { LoadComponent } from './components/load/load.component';
 
 
 
@@ -43,6 +44,7 @@ import { FavComponent } from './pages/fav/fav.component';
     HistoryComponent,
     TransferComponent,
     FavComponent,
+    LoadComponent,
    ],
   imports: [
     BrowserModule,
