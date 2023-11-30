@@ -17,6 +17,7 @@ export class FavComponent implements OnInit, OnDestroy {
 
 
   favs: Fav[] = [];
+  load = true;
 
   constructor(private accServ: AccountService) {
   }
@@ -30,6 +31,7 @@ export class FavComponent implements OnInit, OnDestroy {
 
 
       this.favs = [...data.favoritesAccounts];
+      this.load = false;
 
     });
   }

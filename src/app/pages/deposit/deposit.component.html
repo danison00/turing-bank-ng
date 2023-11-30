@@ -12,8 +12,17 @@
       <div>
         <strong>Valor do depósito: </strong>{{value}}
       </div>
+    </app-modal>
+    <app-modal [show]="modalSuccess" [typeModal]="'success'" (eventClose)="modalSuccess=false">
+      <div>
+        Depósito realizado!
+      </div>
+    </app-modal>
 
-
+    <app-modal [show]="modalDanger" (eventClose)="modalDanger=false" [typeModal]="'danger'" (eventConfirm)="confirmDeposit()">
+      <div>
+        Ocorreu um erro na operação!
+      </div>
     </app-modal>
     <img src="/assets/img/turing-logo.png" alt="banco Turing" />
 

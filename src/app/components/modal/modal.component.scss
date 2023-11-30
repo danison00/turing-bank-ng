@@ -35,6 +35,19 @@
   background-color: rgb(255, 255, 255);
   animation: modal 0.4s;
 }
+h2[typeModal="danger"]{
+  color: red;
+}
+h2[typeModal="success"]{
+  color: green;
+}
+.footer[typeModal="danger"] {
+  margin-top: 0.8rem;
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
 
 @keyframes modal {
   from {
@@ -66,6 +79,7 @@
   justify-content: flex-end;
   gap: 1rem;
 }
+
 
 @media only screen and (max-width : 1300px) {
   .modal {

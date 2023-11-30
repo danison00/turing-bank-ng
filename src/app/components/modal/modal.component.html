@@ -1,14 +1,15 @@
 <div *ngIf="show" class="modal-container">
   <div class="modal">
-    <div class="header">
-      <h2>Informacoes</h2>
+    <div class="header" >
+      <h2 [attr.typeModal] = "typeModal" >Informações</h2>
     </div>
     <div class="content">
      <ng-content></ng-content>
     </div>
-    <div class="footer">
-      <app-button text="Fechar" (eventClick)="close()" typeBtn="secondary" size="small"></app-button>
-      <app-button text="Confirmar" (eventClick)="confirm()" size="small"></app-button>
+    <div class="footer" [attr.typeModal] = "typeModal">
+      <app-button text="Fechar"  (eventClick)="close()" typeBtn="secondary" size="small"></app-button>
+      <app-button *ngIf="typeModal ==='normal'" text="Confirmar" (eventClick)="confirm()" size="small"></app-button>
+
     </div>
   </div>
 </div>

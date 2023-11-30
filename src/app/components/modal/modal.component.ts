@@ -7,10 +7,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ModalComponent {
 
-  @Input() show = true;
+  @Input() show = false;
+
+  @Input() typeModal: "success" | "danger" | "normal" = "normal";
 
   @Output() eventClose: EventEmitter<void> = new EventEmitter<void>();
   @Output() eventConfirm: EventEmitter<void> = new EventEmitter<void>();
+
 
 
   close() {

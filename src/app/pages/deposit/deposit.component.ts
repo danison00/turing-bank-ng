@@ -18,7 +18,10 @@ export class DepositComponent {
   textAlert: string = "";
   alertInputValue = false;
   alertInputAccountNumber = false;
+
   modal = false;
+  modalDanger = false;
+  modalSuccess = false;
 
   depositDataAccount: DepositDataAccount = {
     name: "",
@@ -54,7 +57,7 @@ export class DepositComponent {
     this.accountServ.checkAccoutExist(this.accountNumber).subscribe(
       (depositAccountData: DepositDataAccount | boolean | Transfer) => {
 
-        if(typeof(depositAccountData) == "boolean"){
+        if (typeof (depositAccountData) == "boolean") {
 
           this.textAlert = "Conta não encontrada";
           return;
@@ -62,21 +65,21 @@ export class DepositComponent {
         }
 
         this.depositDataAccount = {
-          name : depositAccountData.name,
+          name: depositAccountData.name,
           accountNumber: this.accountNumber,
           value: this.getNumber(this.value)
         }
-        this.modal = true;
+        this.modalSuccess = true;
 
 
       }
     );
 
   }
-  confirmDeposit(){
+  confirmDeposit() {
 
-    this.accountServ.depositar(this.depositDataAccount).subscribe((resp)=>{
-      if(resp){
+    this.accountServ.depositar(this.depositDataAccount).subscribe((resp) => {
+      if (resp) {
         alert("deposito realizado!")
         this.router.navigate(["home"])
 
@@ -90,9 +93,7 @@ export class DepositComponent {
   }
 
   getNumber(value: string) {
-
     return parseFloat(value.split(" ")[1].replaceAll(".", "").replace(",", "."));
-
   }
 
   removeAlertInput() {
