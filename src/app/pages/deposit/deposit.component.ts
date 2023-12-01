@@ -69,7 +69,7 @@ export class DepositComponent {
           accountNumber: this.accountNumber,
           value: this.getNumber(this.value)
         }
-        this.modalSuccess = true;
+        this.modal = true;
 
 
       }
@@ -80,11 +80,11 @@ export class DepositComponent {
 
     this.accountServ.depositar(this.depositDataAccount).subscribe((resp) => {
       if (resp) {
-        alert("deposito realizado!")
-        this.router.navigate(["home"])
-
+        this.modal= false;
+        this.modalSuccess = true;
+        return;
       }
-      else alert("Errro!")
+      this.modalDanger = true;
 
     })
 
@@ -99,6 +99,9 @@ export class DepositComponent {
   removeAlertInput() {
     this.alertInputAccountNumber = false;
     this.alertInputValue = false;
+  }
+  navigateToRoute(route: string): void {
+    this.router.navigate([route]);
   }
 
 
