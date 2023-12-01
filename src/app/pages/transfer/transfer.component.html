@@ -15,8 +15,20 @@
       <div>
         <label><input (click)=" transfer.saveDestination= !transfer.saveDestination" type="checkbox" name="" id=""> Salvar como favorito</label>
       </div>
-
     </app-modal>
+    <app-modal [show]="modalSuccess" (eventClose)="navigateToRoute('/home')" typeModal="success">
+      <div>
+        Transferência relizada!
+      </div>
+    </app-modal>
+    <app-modal [show]="modalDanger" (eventClose)="modalDanger=false" [typeModal]="'danger'">
+      <div>
+        Ocorreu um erro na operação!
+      </div>
+    </app-modal>
+
+
+
     <img src="/assets/img/turing-logo.png" alt="banco Turing" />
 
     <span>Faça transferências com agilidade e facilidade</span>

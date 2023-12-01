@@ -68,7 +68,6 @@ export class AccountInfoComponent implements OnInit, OnDestroy {
       if (!balance.includes(".")) {
         valorDepoisVirgula = "00";
         if (balance.length <= 3) {
-          console.log(balance + "," + valorDepoisVirgula, "jnhjbhbh");
 
           return balance + "," + valorDepoisVirgula;
         }

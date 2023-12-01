@@ -32,16 +32,14 @@ export class DepositComponent {
 
   constructor(private sharedServ: SharedAccountDataHomeService, private accountServ: AccountService, private router: Router) { }
 
-
-
   back() {
     this.sharedServ.emitirEvento();
   }
 
   onValue(value: string) {
     this.value = value;
-
   }
+
   onAccountNumber(accountNumber: string) {
     this.accountNumber = accountNumber;
   }
@@ -74,7 +72,6 @@ export class DepositComponent {
 
       }
     );
-
   }
   confirmDeposit() {
 

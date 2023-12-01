@@ -125,7 +125,6 @@ export class AccountService {
     });
 
 
-    console.log(data, "hgasasgyuagsyuas");
 
     return this.http.post('/api/transaction/transfer', data, { headers, observe: "response" }).pipe(
       map((res: HttpResponse<any>) => {

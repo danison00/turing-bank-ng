@@ -57,7 +57,6 @@ export class HistoryComponent implements OnInit {
   }
 
   view1(element: string) {
-    console.log(this.deposits);
     const input = document.getElementById("input-" + element) as HTMLInputElement;
     input.checked = true;
     const btns = Array.from(document.getElementsByClassName("button") as HTMLCollection)
