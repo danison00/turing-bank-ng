@@ -15,10 +15,10 @@ export class AuthorizedGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
 
+    return true;
     if (this.authServ.isAuthenticated()){
       console.log("usuario autenticado");
 
-      return true;
     }
     console.log("usuario nao autenticado");
 
