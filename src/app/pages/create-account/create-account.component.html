@@ -1,3 +1,52 @@
-<div>
-  
+<div class="container">
+    <app-modal [show]="modalSuccess" typeModal="success" (eventClose)="redirectLogin()"> Sua conta foi criada!</app-modal>
+    <div class="card-special">
+
+        <header class="header">
+            <img src="/assets/img/turing-logo.png" alt="banco Turing" />
+
+            <span>Crie sua Conta agora mesmo!</span>
+
+        </header>
+
+        <div class="form">
+            <div id="step-one" *ngIf="!quickStepTwo">
+
+                <div class="inputContainer">
+                   
+                    <app-input [content]="username" (click)="removeAlertInput()" [alertInput]="alertInput" label="Username"  (eventChange)="onUsernameChange($event)" [textAlert]="textAlert" placeholder="username"></app-input>
+                </div>
+
+                <div class="inputContainer">
+                    <app-input [content]="password" (eventChange)="onPasswordChange($event)" (click)="removeAlertInput()" [alertInput]="alertInput" label="Senha" type="password"  placeholder="senha"></app-input>
+                </div>
+                <app-button text="Avançar"  (eventClick)="next()" [spinner]=true [spinnerOn]="spinnerOnNext"></app-button>
+            </div>
+
+            <div id="step-two" *ngIf="quickStepTwo">
+                <div class="inputContainer">
+                    <app-input (click)="removeAlertInput()" [alertInput]="alertInput" [content]="nome" placeholder="nome" label="Nome" (eventChange)="onNameChange($event)" (click)="removeAlertInput()" [alertInput]="alertInput"  ></app-input>
+                </div>
+
+                <div class="inputContainer">
+                    <app-input (click)="removeAlertInput()" [alertInput]="alertInput" [content]="cpf" (eventChange)="onCpfChange($event)" placeholder="cpf" type="number" label="Cpf"></app-input>
+
+                </div>
+                <div class="inputContainer">
+                    <app-input (click)="removeAlertInput()" [alertInput]="alertInput" (eventChange)="onEmailChange($event)" [content]="email" placeholder="nome@email.com" label="Email"></app-input>
+
+                </div>
+                <div class="inputContainer">
+                    <app-input (click)="removeAlertInput()" [alertInput]="alertInput" [content]="telefone" (eventChange)="onTelefoneChange($event)" placeholder="(99)99999-9999" label="Telefone"></app-input>
+
+                </div>
+                <div class="btn-container">
+                    <app-button (eventClick)="back()" typeBtn="secondary" text="Voltar"></app-button>
+                    <app-button typeBtn="primary" text="Criar" (eventClick)="create()" [spinner]=true [spinnerOn]="spinnerOnCreate"></app-button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>

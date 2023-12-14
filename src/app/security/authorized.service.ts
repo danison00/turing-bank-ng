@@ -9,7 +9,6 @@ export class AuthorizedService {
 
 
   public isAuthenticated(): boolean {
-
     if (this.getCookie("isAuth"))
       return true;
     return false;

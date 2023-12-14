@@ -15,13 +15,13 @@ export class InputComponent {
   @Input() isMoed = false;
   @Output() eventChange: EventEmitter<string> = new EventEmitter<string>();
 
-  content: string = "";
+  @Input() content: string = "";
 
   emitirContent() {
 
-    if (this.isMoed) {
+    if (this.isMoed) 
       this.mascaraMoeda();
-    }
+    
 
 
     this.eventChange.emit(this.content);
@@ -34,15 +34,7 @@ export class InputComponent {
 
 
   mascaraMoeda() {
-    // if (this.content == "") {
 
-    //   this.content = "R$ 0,00";
-    //   return;
-    // }
-    // if (this.content == "R$ 0,0") {
-    //   this.content = "R$ 0,00";
-    //   return;
-    // }
     const value = parseFloat(this.content.replace(/\D/g, '')); // Remove todos os não-dígitos
     if (Number.isNaN(value)) { this.content = "R$ "; return; }
 

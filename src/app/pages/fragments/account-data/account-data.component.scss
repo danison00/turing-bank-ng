@@ -14,7 +14,6 @@
 .box-btn {
   padding-top: 2rem;
   width: 100%;
-
   display: flex;
   justify-content: center;
 }
@@ -33,5 +32,6 @@
 @media screen and (max-width: 550px) {
     .box-card{
       width: 93%;
+      height: auto;
     }
 }
