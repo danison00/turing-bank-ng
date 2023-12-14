@@ -8,8 +8,8 @@
     </div>
     <div class="footer" [attr.typeModal] = "typeModal">
       <app-button text="Fechar"  (eventClick)="close()" typeBtn="secondary" size="small"></app-button>
-      <app-button *ngIf="typeModal ==='normal'" text="Confirmar" (eventClick)="confirm()" size="small"></app-button>
-
+      <app-button *ngIf="typeModal ==='normal'" text="Confirmar" [spinner]="true" [spinnerOn]="spinnerOn" (eventClick)="confirm()" size="small"></app-button>
+   
     </div>
   </div>
 </div>

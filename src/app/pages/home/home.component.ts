@@ -26,8 +26,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
-    this.subscriptionRouterHome.unsubscribe();
-    
+    this.subscriptionRouterHome.unsubscribe(); 
   }
 
   private accountData!: AccountData;

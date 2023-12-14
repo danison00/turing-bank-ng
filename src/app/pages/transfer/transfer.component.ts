@@ -20,6 +20,8 @@ export class TransferComponent {
   modalSuccess = false;
   modalDanger = false;
 
+  spinnerVerifyOn = false;
+
   transfer: Transfer = {
     accountDestination: '',
     name: '',
@@ -49,7 +51,7 @@ export class TransferComponent {
     if (!this.value.includes(',')) this.alertInputValue = true;
 
     const value = this.getNumber(this.value);
-
+    this.spinnerVerifyOn = true;
     this.accountServ
       .checkAccoutExist(this.accountNumber)
       .subscribe((accountData: DepositDataAccount | boolean | Transfer) => {
@@ -64,7 +66,9 @@ export class TransferComponent {
           value: this.getNumber(this.value),
           saveDestination: false,
         };
+        this.spinnerVerifyOn = true;
         this.modal = true;
+
       });
   }
   confirm() {

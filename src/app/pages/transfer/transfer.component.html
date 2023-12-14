@@ -43,7 +43,7 @@
     </div>
     <div class="box-btn">
       <app-button (eventClick)="back()" typeBtn="secondary" text="Voltar"></app-button>
-      <app-button (eventClick)="checkAccountNumber()" text="Transferir"></app-button>
+      <app-button (eventClick)="checkAccountNumber()" [spinner]="true" [spinnerOn]="spinnerVerifyOn" text="Transferir"></app-button>
     </div>
   </div>
 </div>

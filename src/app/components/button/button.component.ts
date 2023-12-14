@@ -9,10 +9,10 @@ export class ButtonComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
+
   @Input() text: string = "";
-  @Input() typeBtn: "primary" | "secondary" | "terciary" | "circle" = "primary";
+  @Input() typeBtn: "primary" | "secondary" | "circle" = "primary";
   @Input() spinner: true | false = false;
   @Input() size: "normal" | "small" = "normal";
   @Input() spinnerOn = false;
