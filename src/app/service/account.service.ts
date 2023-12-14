@@ -33,7 +33,7 @@ export class AccountService {
 
   public getData(): Observable<AccountData> {
 
-    return interval(1000).pipe(
+    return interval(2500).pipe(
       switchMap(() =>
 
 
